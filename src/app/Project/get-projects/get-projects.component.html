@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>Proyectos</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Autor</th>
+                        <th>Año</th>
+                        <th>Materia</th>
+                        <th>Titulo</th>
+                        <th>Descripción</th>
+                        <th>Fecha de Creación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let project of projects" class="text-center">
+                        <td>{{project.id}} </td>
+                        <td>{{project.author}}</td>
+                        <td>{{project.year}}</td>
+                        <td>{{project.area}}</td>
+                        <td>{{project.title}} </td>
+                        <td>{{project.description}}</td>
+                        <td>{{project.created}}</td>
+                        <td>
+                            <button  type="button" class="btn btn-success">Descargar</button>
+                        </td>
+                        <td>
+                            <button (click)="deleteProject(project)" type="button" class="btn btn-danger">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
