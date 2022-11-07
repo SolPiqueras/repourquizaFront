@@ -10,17 +10,17 @@ export class ServiceService {
   constructor(private http:HttpClient) {
    }
 
-  Url = 'http://localhost:8080/repoUrquiza/projects';
+  Url = 'http://localhost:8080/repoUrquiza/';
 
   getProjects(){
-    return this.http.get<Project[]>(this.Url);
+    return this.http.get<Project[]>(this.Url + "projects");
   }
 
   saveProject(project:Project){
-    return this.http.post<Project>(this.Url, project);
+    return this.http.post<Project>(this.Url + "project", project);
   }
 
   deleteProject(project:Project){
-    return this.http.delete<Project>(this.Url + "/" + project.id);
+    return this.http.delete<Project>(this.Url + "projects/" + project.id);
   }
 }
