@@ -26,7 +26,7 @@
                         <td>{{project.description}}</td>
                         <td>{{project.created}}</td>
                         <td>
-                            <button  type="button" class="btn btn-success">Descargar</button>
+                            <button (click)="downloadZip(project.project)" type="button" class="btn btn-success">Descargar</button>
                         </td>
                         <td>
                             <button (click)="deleteProject(project)" type="button" class="btn btn-danger">Eliminar</button>

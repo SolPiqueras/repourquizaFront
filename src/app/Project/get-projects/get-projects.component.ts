@@ -5,8 +5,7 @@ import { ServiceService } from 'src/app/Service/service.service';
 
 @Component({
   selector: 'app-get-projects',
-  templateUrl: './get-projects.component.html',
-  styleUrls: ['./get-projects.component.css']
+  templateUrl: './get-projects.component.html'
 })
 export class GetProjectsComponent implements OnInit {
 
@@ -22,7 +21,18 @@ export class GetProjectsComponent implements OnInit {
   deleteProject(project:Project){
     this.service.deleteProject(project).subscribe(data=>{
       this.projects=this.projects.filter(p=>p!==project);
-      alert("Usuario eliminado!");
+      alert("Proyecto eliminado!");
     })
   }
+
+  downloadZip(project: any) {
+    const linkSource = 'data:application/zip;base64,' + project
+    const downloadLink = document.createElement("a");
+    const fileName = "proyectoUrquiza.zip";
+
+    downloadLink.href = linkSource;
+    downloadLink.download = fileName;
+    downloadLink.click();
+  }
+  
 }

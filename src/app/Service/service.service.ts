@@ -16,7 +16,7 @@ export class ServiceService {
     return this.http.get<Project[]>(this.Url + "projects");
   }
 
-  saveProject(project:Project){
+  saveProject(project:any){
     return this.http.post<Project>(this.Url + "project", project);
   }
 
