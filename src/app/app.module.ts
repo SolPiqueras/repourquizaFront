@@ -8,6 +8,7 @@ import { SaveProjectComponent } from './Project/save-project/save-project.compon
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ServiceService } from './Service/service.service';
 import { HttpClientModule } from '@angular/common/http';
+import {TableModule} from 'primeng/table';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TableModule
   ],
   providers: [ServiceService],
   bootstrap: [AppComponent]
