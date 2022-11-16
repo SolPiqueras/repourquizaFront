@@ -6,7 +6,8 @@ import { ServiceService } from 'src/app/Service/service.service';
 
 @Component({
   selector: 'app-save-project',
-  templateUrl: './save-project.component.html'
+  templateUrl: './save-project.component.html',
+  styleUrls: ['./save-projects.component.css']
 })
 export class SaveProjectComponent implements OnInit {
   file: any;

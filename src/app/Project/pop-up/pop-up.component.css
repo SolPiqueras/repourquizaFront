@@ -1,0 +1,22 @@
+:host ::ng-deep.p-dialog .p-dialog-content {
+    padding: 0 1.5rem 2rem 1.5rem;
+}
+
+.btn {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-bottom: 2px;
+    padding: 6px 20px;
+    font-size: 15px;
+    line-height: 20px;
+    height: 34px;
+    width: 109px;
+    border-radius: 2px;
+}
+
+
+:host ::ng-deep .p-datatable.p-datatable-sm .p-datatable-tbody > tr > td {
+    word-break:break-all !important; 
+  }
+  

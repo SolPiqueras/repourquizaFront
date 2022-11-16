@@ -1,38 +1,42 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { DialogService } from 'primeng/dynamicdialog';
 import { Project } from 'src/app/Modelo/Project';
 import { ServiceService } from 'src/app/Service/service.service';
+import { PopupComponent } from '../pop-up/pop-up.component';
 
 @Component({
   selector: 'app-get-projects',
-  templateUrl: './get-projects.component.html'
+  templateUrl: './get-projects.component.html',
+  styleUrls: ['./get-projects.component.css']
 })
 export class GetProjectsComponent implements OnInit {
 
   projects!: Project[];
-  constructor(private service:ServiceService, private router:Router) { }
+  private dialogItemRef: any
+  
+  constructor(private service:ServiceService, private router:Router, private dialog: MatDialog,
+    private dialogService: DialogService) { }
 
   ngOnInit(): void {
     this.service.getProjects().subscribe(data =>{
       this.projects=data;
     });
   }
-
-  deleteProject(project:Project){
-    this.service.deleteProject(project).subscribe(data=>{
-      this.projects=this.projects.filter(p=>p!==project);
-      alert("Proyecto eliminado!");
+  
+  show(project: any){
+    const ref = this.dialogService.open(PopupComponent, {
+      height: '78vh',
+      width: '30vw',
+      showHeader: false,
+      closable: false,
+      data: project
+    })
+    ref.onClose.subscribe((data: any) => {
+      if(data){
+       this.projects=this.projects.filter(p=>p!==data);
+      }
     })
   }
-
-  downloadZip(project: any) {
-    const linkSource = 'data:application/zip;base64,' + project
-    const downloadLink = document.createElement("a");
-    const fileName = "proyectoUrquiza.zip";
-
-    downloadLink.href = linkSource;
-    downloadLink.download = fileName;
-    downloadLink.click();
-  }
-  
 }
