@@ -27,7 +27,7 @@ export class GetProjectsComponent implements OnInit {
   
   show(project: any){
     const ref = this.dialogService.open(PopupComponent, {
-      height: '78vh',
+      height: '85vh',
       width: '30vw',
       showHeader: false,
       closable: false,
