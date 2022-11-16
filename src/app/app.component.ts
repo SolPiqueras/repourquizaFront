@@ -18,10 +18,4 @@ export class AppComponent {
   getProject(){
     this.router.navigate(["listProjects"]);
   }
-
-  /*downloadProject(){
-    const fileName = `reporte_${Math.random()}.zip`;
-    this.router.getReport().subscribe(response => {
-      this.manage
-    })*/
 }

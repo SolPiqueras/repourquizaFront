@@ -20,11 +20,11 @@ export class PopupComponent implements OnInit {
   constructor(private service:ServiceService, private router:Router,private ref:DynamicDialogRef,
     private dialogConfig: DynamicDialogConfig) { 
       this.form = new FormGroup({
-        Title: new FormControl('', Validators.required),
-        Author: new FormControl('', Validators.required),
-        Area: new FormControl('', Validators.required),
-        Year: new FormControl('', Validators.required),
-        Description: new FormControl('', Validators.required),
+        Title: new FormControl({ value: 0.00, disabled: true }),
+        Author: new FormControl({ value: 0.00, disabled: true }),
+        Area: new FormControl({ value: 0.00, disabled: true }),
+        Year: new FormControl({ value: 0.00, disabled: true }),
+        Description: new FormControl({ value: 0.00, disabled: true }),
       })
     }
   
